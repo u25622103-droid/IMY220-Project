@@ -15,8 +15,8 @@ function Splash() {
                     <p>Connect with fellow photographers and grow together</p>
                 </div>
                 <div className="splash-buttons">
-                    <Link to="/Login">Login</Link>
-                    <Link to="/SignUp">Sign-up</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Sign-up</Link>
                 </div>
             </div>
         </>
