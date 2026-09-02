@@ -25,6 +25,14 @@ const Signup = () => {
     const newErrors = {};
     
     // Custom error messages
+    if (!formData.name) {
+        newErrors.name = 'Please enter your name';
+    } else if (formData.name.length < 4) {
+        newErrors.name = 'Name must be at least 4 characters long';
+    } else if (formData.name.length > 20) {
+        newErrors.name = 'Name must be less than 20 characters';
+    }
+
     if (!formData.email) {
         newErrors.email = 'Please enter your email address';
     } else if (!formData.email.includes('@')) {
@@ -39,6 +47,12 @@ const Signup = () => {
         newErrors.password = 'Password must be at least 4 characters long';
     } else if (formData.password.length > 20) {
         newErrors.password = 'Password must be less than 20 characters';
+    }
+
+    if (!formData.confirmPassword) {
+        newErrors.confirmPassword = 'Please confirm your password';
+    } else if (formData.confirmPassword != formData.password) {
+        newErrors.password = 'Passwords do not match';
     }
     
     if (Object.keys(newErrors).length > 0) {
@@ -65,6 +79,7 @@ const Signup = () => {
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 />
+                <br/>
                 {errors.name && <span className="error">{errors.name}</span>}
             </div>
 
@@ -78,6 +93,7 @@ const Signup = () => {
                 onChange={handleChange}
                 placeholder="Enter your email"
                 />
+                <br/>
                 {errors.email && <span className="error">{errors.email}</span>}
             </div>
 
@@ -91,6 +107,7 @@ const Signup = () => {
                 onChange={handleChange}
                 placeholder="Create a password"
                 />
+                <br/>
                 {errors.password && <span className="error">{errors.password}</span>}
             </div>
 
@@ -104,6 +121,7 @@ const Signup = () => {
                 onChange={handleChange}
                 placeholder="Confirm your password"
                 />
+                <br/>
                 {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
             </div>
 
