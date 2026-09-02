@@ -29,3 +29,12 @@
 h1 {
     margin-top: 3%;
 }
+
+.form-btn {
+    transform: translateY(0);
+}
+
+.form-btn:hover {
+    transform: translateY(-10px);
+    transition: transform 0.45s ease-in-out;
+}
