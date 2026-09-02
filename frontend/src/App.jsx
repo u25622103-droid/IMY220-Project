@@ -26,8 +26,6 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/posts" element={<Posts />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
               </Routes>
             </div>
           </div>
@@ -38,6 +36,8 @@ function App() {
       {isSplashPage && (
         <Routes>
           <Route path="/" element={<Splash />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       )}
     </div>
