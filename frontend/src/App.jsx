@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router';
-import Navbar from './Navbar';
-import Splash from './Splash';
-import Home from './Home';
-import Profile from './Profile';
-import Posts from './Posts';
+import Navbar from './components/Navbar';
+import Splash from "./pages/Splash"
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Posts from './pages/Posts';
+import "./css/App.css";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             <Route path="/" element={<Splash />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/post" element={<Posts />} />
+            <Route path="/posts" element={<Posts />} />
           </Routes>
         </div>
       </div>
