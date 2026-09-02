@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, useLocation } from 'react-router';
 import Navbar from './components/Navbar';
 import Splash from "./pages/Splash"
 import Home from './pages/Home';
@@ -7,22 +7,37 @@ import Posts from './pages/Posts';
 import "./css/App.css";
 
 function App() {
+  const location = useLocation();
+  const isSplashPage = location.pathname === '/';
+
   return (
     <div className="app-wrapper">
-      <h1>BEAUTIFY</h1>
-      <div className='main'>
-        <Navbar />
-        <div className='content'>
-          <Routes>
-            <Route path="/" element={<Splash />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/posts" element={<Posts />} />
-          </Routes>
-        </div>
-      </div>
+      {/* Only show heading and navbar if NOT on splash page */}
+      {!isSplashPage && (
+        <>
+          <h1>BEAUTIFY</h1>
+          <div className='main'>
+            <Navbar />
+            <div className='content'>
+              <Routes>
+                <Route path="/" element={<Splash />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/posts" element={<Posts />} />
+              </Routes>
+            </div>
+          </div>
+        </>
+      )}
+      
+      {/* Show splash page without heading and navbar */}
+      {isSplashPage && (
+        <Routes>
+          <Route path="/" element={<Splash />} />
+        </Routes>
+      )}
     </div>
   );
 }
 
-export default  App;
+export default App;
