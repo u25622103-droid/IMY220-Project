@@ -18,7 +18,7 @@ function App() {
     <div className="app-wrapper">
       {showLayout ? (
         <>
-          <h1>BEAUTIFY</h1>
+          <h1 id='main-heading'>BEAUTIFY</h1>
           <div className='main'>
             <Navbar />
             <div className='content'>
