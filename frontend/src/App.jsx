@@ -1,21 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Splash from "./pages/Splash";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Posts from "./pages/Posts";
-
+import { Routes, Route } from 'react-router';
+import Navbar from './Navbar';
+import Splash from './Splash';
+import Home from './Home';
+import Profile from './Profile';
+import Posts from './Posts';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/profile/:userId" element={<Profile />} />
-        <Route path="/post/:postId" element={<Posts />} />
-      </Routes>
-    </Router>
+    <div className="app-wrapper">
+      <h1>BEAUTIFY</h1>
+      <div className='main'>
+        <Navbar />
+        <div className='content'>
+          <Routes>
+            <Route path="/" element={<Splash />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/post" element={<Posts />} />
+          </Routes>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default App
+export default  App;
