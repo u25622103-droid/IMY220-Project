@@ -101,7 +101,8 @@ const Signup = () => {
 
   return (
     <div className="auth-page">
-      <h1>BEAUTIFY</h1>
+      <div className="signup-bg"></div>
+      <h1 id="signup-heading">BEAUTIFY</h1>
       <div className="auth-container">
         <p>Create your account</p>
         

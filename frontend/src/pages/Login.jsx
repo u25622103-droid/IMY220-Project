@@ -41,7 +41,8 @@ const Login = () => {
 
   return (
     <div>
-        <h1>Login to BEAUTIFY</h1>
+      <div className="login-bg"></div>
+        <h1 id="log-heading">Login to BEAUTIFY</h1>
         <div className="login-container">
             <form onSubmit={handleSubmit} className="auth-form">
                 <div className="form-group">

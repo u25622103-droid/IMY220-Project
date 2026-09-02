@@ -1,3 +1,21 @@
+.login-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../../public/assets/images/splash-bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    z-index: 0;
+}
+
+#log-heading, .login-container {
+    position: relative;
+    z-index: 1;
+}
+
 .login-container {
      width: 35%;
     padding: 2%;
