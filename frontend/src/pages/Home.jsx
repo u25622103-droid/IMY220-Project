@@ -1,6 +1,13 @@
+import "../css/Home.css";
+
 function Home() {
     return(
-        <h1>Home</h1>
+        <div>
+            <div className="home-bg"></div>
+            <div className="home-main">
+                <h1>Home</h1>
+            </div>
+        </div>
     );
 }
 

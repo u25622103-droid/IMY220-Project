@@ -1,0 +1,12 @@
+.posts-bg {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+    background: url("../../public/assets/images/posts-bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+}

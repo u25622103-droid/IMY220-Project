@@ -1,6 +1,13 @@
+import "../css/Profile.css";
+
 function Profile() {
     return(
-        <h1>Profile</h1>
+        <div>
+            <div className="profile-bg"></div>
+            <div>
+                <h1>Profile</h1>
+            </div>
+        </div>
     );
 }
 
