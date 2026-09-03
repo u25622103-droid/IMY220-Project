@@ -42,3 +42,6 @@ docker run -d -p 5173:5173 --name beautify-frontend beautify-frontend
     Backend API: http://localhost:5000
 
     Health Check: http://localhost:5000/api/health
+
+# Github repo link:
+https://github.com/u25622103-droid/IMY220-Project
