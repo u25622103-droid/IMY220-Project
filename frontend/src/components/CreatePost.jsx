@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import "../css/CreatePost.css";
 //import { Link } from 'react-router';
 
 const CreatePost = ({ onCancel, onPostCreated }) => {
@@ -61,7 +62,7 @@ const CreatePost = ({ onCancel, onPostCreated }) => {
             accept="image/*"
             onChange={handleImageChange}
             className={errors.image ? 'error-input' : ''}
-          />
+          /><br/>
           {errors.image && <span className="error">{errors.image}</span>}
           {preview && (
             <div className="image-preview">
@@ -79,7 +80,7 @@ const CreatePost = ({ onCancel, onPostCreated }) => {
             onChange={handleChange}
             placeholder="What's on your mind?"
             className={errors.description ? 'error-input' : ''}
-          />
+          /><br/>
           {errors.description && <span className="error">{errors.description}</span>}
         </div>
 
