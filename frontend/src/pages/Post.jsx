@@ -1,15 +1,15 @@
 import { useParams, Link } from 'react-router';
 import { useState, useEffect } from 'react';
-//import "../css/Post.css";
+import "../css/Post.css";
 
 const Post = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true); // Start with loading = true
+  const [loading, setLoading] = useState(true); 
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
 
-  // Dummy data - replace with API call
+  // Dummy data 
   const getPostData = (id) => {
     const posts = {
       1: {
@@ -17,14 +17,14 @@ const Post = () => {
         user: 'Your Friend',
         username: '@friend',
         avatar: '👤',
-        image: '/assets/images/post1.jpg',
-        description: 'Beautiful sunset at the beach! 🌅 The colors were absolutely stunning today. Perfect way to end the day.',
+        image: '../../public/assets/images/profile-1.jpg',
+        description: 'Beautiful sunset at the beach! The colors were absolutely stunning today. Perfect way to end the day.',
         hashtags: ['#sunset', '#beach', '#nature', '#photography'],
         likes: 24,
         comments: [
           { id: 1, user: 'Jane', text: 'Gorgeous shot!', timestamp: '2h ago' },
           { id: 2, user: 'Mike', text: 'Where is this?', timestamp: '1h ago' },
-          { id: 3, user: 'Sarah', text: 'Beautiful colors 🌅', timestamp: '30m ago' }
+          { id: 3, user: 'Sarah', text: 'Beautiful colors ', timestamp: '30m ago' }
         ],
         timestamp: '2024-01-15T14:30:00',
         isFriend: true
@@ -34,8 +34,8 @@ const Post = () => {
         user: 'Another Friend',
         username: '@anotherfriend',
         avatar: '👤',
-        image: '/assets/images/post2.jpg',
-        description: 'Just finished this amazing painting 🎨 Took me weeks but totally worth it!',
+        image: '../../public/assets/images/splash-1.jpg',
+        description: 'Just finished this amazing painting, Took me weeks but totally worth it!',
         hashtags: ['#art', '#painting', '#creative', '#artist'],
         likes: 18,
         comments: [
@@ -44,27 +44,22 @@ const Post = () => {
         timestamp: '2024-01-15T12:15:00',
         isFriend: true
       },
-      // Add more posts as needed
     };
     return posts[id] || posts[1];
   };
 
   useEffect(() => {
-    let isMounted = true; // Track if component is mounted
+    let isMounted = true; 
     
-    // REMOVED: setLoading(true) - loading is already true from useState
-    
-    // Simulate API call
     const timer = setTimeout(() => {
       if (isMounted) {
         const postData = getPostData(parseInt(postId));
         setPost(postData);
         setLikesCount(postData.likes);
-        setLoading(false); // Only set loading to false when done
+        setLoading(false); 
       }
     }, 500);
 
-    // Cleanup
     return () => {
       isMounted = false;
       clearTimeout(timer);
@@ -100,11 +95,11 @@ const Post = () => {
 
   return (
     <div className="post-page">
+    <div className="posts-bg"></div>
       <div className="post-container">
         <Link to="/home" className="back-link">← Back to Feed</Link>
         
         <div className="post-full">
-          {/* User Info */}
           <div className="post-full-header">
             <div className="post-user-info">
               <span className="post-avatar-large">{post.avatar || '📸'}</span>
@@ -116,13 +111,9 @@ const Post = () => {
             </div>
             <span className="post-time">{new Date(post.timestamp).toLocaleDateString()}</span>
           </div>
-
-          {/* Image */}
           <div className="post-full-image">
             <img src={post.image} alt={post.description} />
           </div>
-
-          {/* Content */}
           <div className="post-full-content">
             <p className="post-description">{post.description}</p>
             
@@ -131,8 +122,6 @@ const Post = () => {
                 <span key={tag} className="hashtag">{tag}</span>
               ))}
             </div>
-
-            {/* Actions */}
             <div className="post-actions">
               <button 
                 className={`action-btn like-btn ${liked ? 'liked' : ''}`}
@@ -144,8 +133,6 @@ const Post = () => {
                 💬 {post.comments.length} Comments
               </button>
             </div>
-
-            {/* Comments */}
             <div className="post-comments">
               <h4>Comments</h4>
               {post.comments.length === 0 ? (

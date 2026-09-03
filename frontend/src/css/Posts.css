@@ -10,3 +10,258 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+/* Posts Page - Similar to Feed Grid */
+.posts-page {
+    min-height: 100vh;
+    position: relative;
+}
+
+.posts-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.posts-main {
+    position: relative;
+    z-index: 2;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin-left: 15%;
+}
+
+/* User Profile Header */
+.posts-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-large {
+    font-size: 4rem;
+    display: block;
+}
+
+.profile-info h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0 0 4px 0;
+}
+
+.profile-username {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+}
+
+.profile-bio {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Posts Section Header */
+.posts-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.posts-section-header h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.post-count {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    padding: 4px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+/* Posts Grid - Same as Feed */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 5px;
+}
+
+/* Post Cards - Same as Feed items */
+.post-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.post-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.post-card-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #1a1a2e;
+}
+
+.post-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-card-image img {
+    transform: scale(1.08);
+}
+
+/* Overlay - Shows on hover */
+.post-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 16px 16px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-card:hover .post-card-overlay {
+    opacity: 1;
+}
+
+.post-card-stats {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.post-card-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Empty State */
+.posts-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 2px dashed rgba(255, 255, 255, 0.05);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.posts-empty h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.posts-empty p {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+.create-post-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.create-post-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Loading */
+.posts-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.loading-spinner {
+    font-size: 3rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .posts-user-profile {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .avatar-large {
+        font-size: 3rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.4rem;
+    }
+}
