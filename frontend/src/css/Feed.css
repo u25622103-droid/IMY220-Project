@@ -37,7 +37,7 @@
 
 .feed-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, minmax(270px, 1fr));
     gap: 20px;
     padding: 5px;
 }
@@ -95,7 +95,6 @@
     opacity: 1;
 }
 
-/* User Info in Overlay */
 .post-grid-user {
     display: flex;
     align-items: center;
@@ -127,7 +126,6 @@
     margin-left: 2px;
 }
 
-/* Loading State */
 .feed-loading {
     display: flex;
     flex-direction: column;
@@ -160,55 +158,6 @@
     margin-top: 8px;
 }
 
-/* Responsive Breakpoints */
-
-/* Large screens - 4 columns */
-@media (min-width: 1200px) {
-    .feed-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-    }
-}
-
-/* Medium screens - 3 columns */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .feed-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-/* Tablets - 2 columns */
-@media (min-width: 480px) and (max-width: 767px) {
-    .feed-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-/* Mobile - 2 columns (smaller) */
-@media (max-width: 479px) {
-    .feed-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    
-    .post-grid-item {
-        border-radius: 12px;
-    }
-    
-    .post-grid-user .post-username {
-        font-size: 0.8rem;
-    }
-    
-    .post-grid-user .post-avatar {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
-    }
-}
-
-/* Optional: Add a subtle animation when posts appear */
 @keyframes fadeInUp {
     from {
         opacity: 0;

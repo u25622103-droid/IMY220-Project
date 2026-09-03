@@ -8,7 +8,6 @@ function Posts() {
   const [loading, setLoading] = useState(true);
   const [showCreatePost, setShowCreatePost] = useState(false);
   
-  // User data - initialize directly, no setUser needed
   const user = {
     id: 1,
     name: 'Your Name',
@@ -18,7 +17,7 @@ function Posts() {
   };
 
   useEffect(() => {
-    // Dummy data - User's own posts (filtered by userId = 1)
+    // Dummy data 
     const userPosts = [
       { 
         id: 1, 
@@ -102,7 +101,7 @@ function Posts() {
 
         <div className="posts-section">
           <div className="posts-section-header">
-            <h3>📸 My Photos</h3>
+            <h3>My Photos</h3>
             <div className="posts-header-actions">
               <span className="post-count">{posts.length} posts</span>
               <button 
@@ -114,7 +113,6 @@ function Posts() {
             </div>
           </div>
 
-          {/* Create Post Form */}
           {showCreatePost && (
             <CreatePost 
               onCancel={() => setShowCreatePost(false)}

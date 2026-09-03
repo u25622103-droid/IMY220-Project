@@ -4,10 +4,10 @@ import "../css/Feed.css";
 
 const Feed = ({ type, sortBy }) => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true); // Start with loading = true
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    // Dummy data inside the effect
+    // Dummy data 
     const dummyPosts = {
       local: [
         { 

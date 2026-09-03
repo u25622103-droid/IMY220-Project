@@ -11,7 +11,6 @@
     background-attachment: fixed;
 }
 
-/* Posts Page - Similar to Feed Grid */
 .posts-page {
     min-height: 100vh;
     position: relative;
@@ -36,7 +35,6 @@
     margin-left: 15%;
 }
 
-/* User Profile Header */
 .posts-user-profile {
     display: flex;
     align-items: center;
@@ -76,7 +74,6 @@
     font-size: 0.95rem;
 }
 
-/* Posts Section Header */
 .posts-section-header {
     display: flex;
     justify-content: space-between;
@@ -100,7 +97,6 @@
     border-radius: 20px;
 }
 
-/* Posts Grid - Same as Feed */
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -108,7 +104,6 @@
     padding: 5px;
 }
 
-/* Post Cards - Same as Feed items */
 .post-card {
     position: relative;
     aspect-ratio: 1 / 1;
@@ -147,7 +142,6 @@
     transform: scale(1.08);
 }
 
-/* Overlay - Shows on hover */
 .post-card-overlay {
     position: absolute;
     bottom: 0;
@@ -176,7 +170,6 @@
     gap: 5px;
 }
 
-/* Empty State */
 .posts-empty {
     text-align: center;
     padding: 60px 20px;
@@ -217,7 +210,6 @@
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-/* Loading */
 .posts-loading {
     display: flex;
     flex-direction: column;
@@ -237,26 +229,25 @@
     to { transform: rotate(360deg); }
 }
 
-/* Posts Header Actions */
 .posts-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .create-post-btn-small {
-  padding: 6px 16px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border: none;
-  border-radius: 20px;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .create-post-btn-small:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

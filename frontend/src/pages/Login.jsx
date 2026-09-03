@@ -36,7 +36,6 @@ const Login = () => {
     }
     
     console.log('Login:', formData);
-    // Handle login logic here
   };
 
   return (

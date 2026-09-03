@@ -69,7 +69,7 @@ const Signup = () => {
       return;
     }
     
-    // Everything is valid!
+    // Everything is valid
     setIsSubmitting(true);
     setMessage('');
     
@@ -106,7 +106,6 @@ const Signup = () => {
       <div className="auth-container">
         <p>Create your account</p>
         
-        {/* Message display */}
         {message && (
           <div className={`message ${messageType}`}>
             {message}

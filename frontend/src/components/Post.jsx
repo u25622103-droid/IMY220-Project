@@ -141,7 +141,6 @@ const Post = () => {
         </div>
         
         <div className="post-full">
-          {/* Show Edit Form if editing */}
           {isEditing ? (
             <EditPost 
               post={post}
@@ -150,25 +149,22 @@ const Post = () => {
             />
           ) : (
             <>
-              {/* Post Header */}
               <div className="post-full-header">
                 <div className="post-user-info">
                   <span className="post-avatar-large">{post.avatar || '📸'}</span>
                   <div>
                     <span className="post-username">{post.user}</span>
                     <span className="post-username-handle">{post.username}</span>
-                    {post.isFriend && <span className="friend-badge">🤝 Friend</span>}
+                    {post.isFriend && <span className="friend-badge">Friend</span>}
                   </div>
                 </div>
                 <span className="post-time">{new Date(post.timestamp).toLocaleDateString()}</span>
               </div>
 
-              {/* Post Image */}
               <div className="post-full-image">
                 <img src={post.image} alt={post.description} />
               </div>
 
-              {/* Post Content */}
               <div className="post-full-content">
                 <p className="post-description">{post.description}</p>
                 
@@ -178,7 +174,6 @@ const Post = () => {
                   ))}
                 </div>
 
-                {/* Actions */}
                 <div className="post-actions">
                   <button 
                     className={`action-btn like-btn ${liked ? 'liked' : ''}`}
@@ -191,7 +186,6 @@ const Post = () => {
                   </button>
                 </div>
 
-                {/* Comments Component */}
                 <Comments postId={post.id} comments={post.comments} />
               </div>
             </>
