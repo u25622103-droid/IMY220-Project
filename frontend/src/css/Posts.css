@@ -237,35 +237,6 @@
     to { transform: rotate(360deg); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .posts-user-profile {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .posts-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .posts-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .avatar-large {
-        font-size: 3rem;
-    }
-
-    .profile-info h2 {
-        font-size: 1.4rem;
-    }
-}
-
 /* Posts Header Actions */
 .posts-header-actions {
   display: flex;
