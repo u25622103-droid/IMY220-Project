@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import "../css/Feed.css";
 
 const Feed = ({ type, sortBy }) => {
   const [posts, setPosts] = useState([]);
@@ -14,7 +15,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'Your Friend', 
           username: '@friend',
           avatar: '👤',
-          image: '/assets/images/post1.jpg', 
+          image: '../../public/assets/images/feed-1.jpg', 
           description: 'Beautiful sunset at the beach! 🌅',
           hashtags: ['#sunset', '#beach', '#nature'],
           likes: 24,
@@ -27,7 +28,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'Another Friend', 
           username: '@anotherfriend',
           avatar: '👤',
-          image: '/assets/images/post2.jpg', 
+          image: '../../public/assets/images/feed-2.jpg', 
           description: 'Just finished this amazing painting 🎨',
           hashtags: ['#art', '#painting', '#creative'],
           likes: 18,
@@ -40,7 +41,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'Your Sister', 
           username: '@sister',
           avatar: '👤',
-          image: '/assets/images/post3.jpg', 
+          image: '../../public/assets/images/feed-3.jpg', 
           description: 'Coffee and books = perfect morning ☕📚',
           hashtags: ['#coffee', '#books', '#morning'],
           likes: 32,
@@ -55,7 +56,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'PhotographerPro', 
           username: '@photopro',
           avatar: '📷',
-          image: '/assets/images/post4.jpg', 
+          image: '../../public/assets/images/feed-4.jpg', 
           description: 'Captured this moment in NYC 🗽',
           hashtags: ['#nyc', '#streetphotography', '#city'],
           likes: 156,
@@ -68,7 +69,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'NatureLover', 
           username: '@naturelover',
           avatar: '🌿',
-          image: '/assets/images/post5.jpg', 
+          image: '../../public/assets/images/feed-5.jpg', 
           description: 'Mountain views that take your breath away ⛰️',
           hashtags: ['#mountains', '#nature', '#adventure'],
           likes: 89,
@@ -81,7 +82,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'FoodieGram', 
           username: '@foodiegram',
           avatar: '🍕',
-          image: '/assets/images/post6.jpg', 
+          image: '../../public/assets/images/feed-6.jpg', 
           description: 'Homemade pasta from scratch! 🍝',
           hashtags: ['#food', '#cooking', '#homemade'],
           likes: 67,
@@ -94,7 +95,7 @@ const Feed = ({ type, sortBy }) => {
           user: 'TravelBug', 
           username: '@travelbug',
           avatar: '✈️',
-          image: '/assets/images/post7.jpg', 
+          image: '../../public/assets/images/feed-7.jpg', 
           description: 'Exploring the ancient temples of Kyoto 🇯🇵',
           hashtags: ['#japan', '#travel', '#kyoto'],
           likes: 203,
@@ -104,8 +105,6 @@ const Feed = ({ type, sortBy }) => {
         }
       ]
     };
-
-    // REMOVED: setLoading(true) - loading is already true from useState
     
     // Simulate API call
     const timer = setTimeout(() => {
@@ -119,7 +118,7 @@ const Feed = ({ type, sortBy }) => {
       }
       
       setPosts(feedPosts);
-      setLoading(false); // Only set loading to false when done
+      setLoading(false); 
     }, 500);
 
     // Cleanup timeout

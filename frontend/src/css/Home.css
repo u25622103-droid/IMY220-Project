@@ -14,4 +14,27 @@
 .home-main {
     position: relative;
     z-index: 1;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.feed-toggle {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 60%;
+    margin-left: 25%;
+}
+
+.active {
+    color: white;
+}
+
+#local, #global, #sort {
+    padding: 2%;
+    color: white;
+    background-color: black;
+    font-family: 'Papyrus';
+    height: 5%;
+    border: 0;
 }
