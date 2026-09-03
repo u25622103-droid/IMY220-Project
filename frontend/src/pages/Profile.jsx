@@ -26,10 +26,10 @@ function Profile() {
         following: 85
       },
       friends: [
-        { id: 2, name: 'Jane Smith', username: '@jane', avatar: '👩', isFriend: true },
-        { id: 3, name: 'Mike Johnson', username: '@mike', avatar: '👨', isFriend: true },
-        { id: 4, name: 'Sarah Wilson', username: '@sarah', avatar: '👩', isFriend: true },
-        { id: 5, name: 'Alex Chen', username: '@alex', avatar: '🧑', isFriend: true }
+        { id: 2, name: 'Jane Smith', username: '@jane', isFriend: true },
+        { id: 3, name: 'Mike Johnson', username: '@mike', isFriend: true },
+        { id: 4, name: 'Sarah Wilson', username: '@sarah', isFriend: true },
+        { id: 5, name: 'Alex Chen', username: '@alex', isFriend: true }
       ],
       posts: [
         { id: 1, image: '../../public/assets/images/feed-1.jpg', likes: 24, comments: 5 },
@@ -96,11 +96,7 @@ function Profile() {
           />
           <div className="cover-overlay"></div>
 
-          <div className="profile-avatar-wrapper">
-            <div className="profile-avatar">
-              <span className="avatar-emoji">{profile.avatar || '👤'}</span>
-            </div>
-          </div>
+          
         </div>
 
         <div className="profile-info-section">
@@ -136,7 +132,7 @@ function Profile() {
             className="edit-profile-btn"
             onClick={() => setIsEditing(true)}
           >
-            ✏️ Edit Profile
+            Edit Profile
           </button>
         </div>
 
@@ -145,19 +141,19 @@ function Profile() {
             className={`tab-btn ${activeTab === 'posts' ? 'active' : ''}`}
             onClick={() => setActiveTab('posts')}
           >
-            📸 Posts ({profile.posts.length})
+            Posts ({profile.posts.length})
           </button>
           <button
             className={`tab-btn ${activeTab === 'albums' ? 'active' : ''}`}
             onClick={() => setActiveTab('albums')}
           >
-            🎨 Albums ({profile.albums.length})
+            Albums ({profile.albums.length})
           </button>
           <button
             className={`tab-btn ${activeTab === 'friends' ? 'active' : ''}`}
             onClick={() => setActiveTab('friends')}
           >
-            🤝 Friends ({profile.friends.length})
+            Friends ({profile.friends.length})
           </button>
         </div>
 

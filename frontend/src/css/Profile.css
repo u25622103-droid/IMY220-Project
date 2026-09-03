@@ -11,7 +11,6 @@
     background-attachment: fixed;
 }
 
-/* Profile Page */
 .profile-page {
   min-height: 100vh;
   position: relative;
@@ -173,7 +172,6 @@
   font-size: 0.85rem;
 }
 
-/* Stats */
 .profile-stats {
   display: flex;
   gap: 40px;
@@ -196,7 +194,6 @@
   font-size: 0.85rem;
 }
 
-/* Edit Profile Button */
 .edit-profile-btn {
   padding: 10px 30px;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -215,7 +212,6 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-/* Tabs */
 .profile-tabs {
   display: flex;
   gap: 10px;
@@ -254,7 +250,6 @@
     0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Tab Content */
 .profile-tab-content {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
@@ -263,7 +258,6 @@
   min-height: 300px;
 }
 
-/* Posts Grid in Profile */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -317,7 +311,7 @@
   font-size: 0.85rem;
 }
 
-/* Albums Grid */
+
 .albums-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -369,80 +363,18 @@
   font-size: 0.95rem;
 }
 
-/* Friends Grid */
 .friends-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
 }
 
-.friend-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-}
-
-.friend-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-3px);
-}
-
-.friend-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-}
-
-.friend-info {
-  flex: 1;
-}
-
-.friend-name {
-  display: block;
-  color: white;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.friend-username {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
-}
-
-.friend-action-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
-}
-
-.friend-action-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-/* Empty State */
 .empty-state {
   text-align: center;
   padding: 40px;
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* Loading */
 .profile-loading {
   display: flex;
   flex-direction: column;
@@ -462,103 +394,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Avatar Modal - Reuse from previous */
-.avatar-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.avatar-modal {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 500px;
-  width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.avatar-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.avatar-modal-header h3 {
-  color: white;
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.modal-close-btn {
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.modal-close-btn:hover {
-  color: white;
-}
-
-.avatar-options-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.avatar-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 2px solid transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.avatar-option:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: scale(1.05);
-}
-
-.avatar-option.selected {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.1);
-}
-
-.avatar-option-emoji {
-  font-size: 2rem;
-}
-
-.avatar-option-label {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.7rem;
-}
-
-/* Profile Cover - YouTube Style */
 .profile-cover {
   position: relative;
   width: 100%;
@@ -583,7 +418,7 @@
   background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.6));
 }
 
-/* Avatar on Cover */
+
 .profile-avatar-wrapper {
   position: absolute;
   bottom: -50px;
@@ -632,7 +467,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Profile Info */
 .profile-info-section {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
@@ -684,7 +518,6 @@
   font-size: 0.85rem;
 }
 
-/* Stats */
 .profile-stats {
   display: flex;
   gap: 40px;
@@ -707,11 +540,15 @@
   font-size: 0.85rem;
 }
 
-/* Edit Profile Button */
 .edit-profile-btn {
   padding: 10px 30px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border: none;
+  background: rgba(255, 1, 1, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.141);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.45),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   color: white;
   font-size: 0.95rem;
@@ -726,7 +563,6 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-/* Tabs */
 .profile-tabs {
   display: flex;
   gap: 10px;
@@ -765,7 +601,6 @@
     0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Tab Content */
 .profile-tab-content {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
@@ -774,7 +609,7 @@
   min-height: 300px;
 }
 
-/* Posts Grid */
+
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -828,7 +663,6 @@
   font-size: 0.85rem;
 }
 
-/* Albums Grid */
 .albums-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -880,14 +714,12 @@
   font-size: 0.95rem;
 }
 
-/* Friends Grid */
 .friends-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
 }
 
-/* Edit Profile Form */
 .edit-profile {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
@@ -974,7 +806,6 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Loading */
 .profile-loading {
   display: flex;
   flex-direction: column;
@@ -994,111 +825,4 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .profile-cover {
-    height: 150px;
-  }
 
-  .profile-avatar-wrapper {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -40px;
-  }
-
-  .profile-avatar {
-    width: 90px;
-    height: 90px;
-  }
-
-  .avatar-emoji {
-    font-size: 3rem;
-  }
-
-  .profile-info-section {
-    padding: 50px 20px 20px;
-    text-align: center;
-  }
-
-  .profile-name-area {
-    justify-content: center;
-  }
-
-  .profile-location {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .profile-stats {
-    justify-content: center;
-    gap: 25px;
-  }
-
-  .edit-profile-btn {
-    width: 100%;
-  }
-
-  .profile-tabs {
-    flex-wrap: wrap;
-  }
-
-  .tab-btn {
-    flex: 1;
-    min-width: 80px;
-    font-size: 0.8rem;
-    padding: 10px 12px;
-  }
-
-  .posts-grid,
-  .albums-grid,
-  .friends-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .avatar-options-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-cover {
-    height: 120px;
-  }
-
-  .profile-avatar {
-    width: 70px;
-    height: 70px;
-  }
-
-  .avatar-emoji {
-    font-size: 2.5rem;
-  }
-
-  .profile-name {
-    font-size: 1.4rem;
-  }
-
-  .posts-grid,
-  .albums-grid,
-  .friends-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .profile-stats {
-    gap: 15px;
-  }
-
-  .stat-number {
-    font-size: 1.2rem;
-  }
-
-  .avatar-options-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .avatar-option-emoji {
-    font-size: 1.5rem;
-  }
-}
