@@ -45,7 +45,7 @@ h1 {
 }
 
 
-input, button {
+input, .form-btn {
     padding: 1%;
     margin-left: 3%;
     color: white;
