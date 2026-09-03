@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router';
 import { useState, useEffect } from 'react';
+import EditPost from '../components/EditPost';
+import Comments from '../components/Comments';
 import "../css/Post.css";
 
 const Post = () => {
@@ -8,6 +10,7 @@ const Post = () => {
   const [loading, setLoading] = useState(true); 
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
+  const [isEditing, setIsEditing] = useState(false);
 
   // Dummy data 
   const getPostData = (id) => {
@@ -27,7 +30,8 @@ const Post = () => {
           { id: 3, user: 'Sarah', text: 'Beautiful colors ', timestamp: '30m ago' }
         ],
         timestamp: '2024-01-15T14:30:00',
-        isFriend: true
+        isFriend: true,
+        isOwner: true // For edit/delete permissions
       },
       2: {
         id: 2,
@@ -42,7 +46,8 @@ const Post = () => {
           { id: 1, user: 'Alex', text: 'Incredible talent!', timestamp: '3h ago' }
         ],
         timestamp: '2024-01-15T12:15:00',
-        isFriend: true
+        isFriend: true,
+        isOwner: false
       },
     };
     return posts[id] || posts[1];
@@ -75,6 +80,24 @@ const Post = () => {
     setLiked(!liked);
   };
 
+  const handleEditSave = (updatedData) => {
+    setPost(prev => ({
+      ...prev,
+      description: updatedData.description,
+      hashtags: updatedData.hashtags
+    }));
+    setIsEditing(false);
+    console.log('Post updated:', updatedData);
+  };
+
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      console.log('Post deleted:', post.id);
+      // Navigate back to home
+      window.location.href = '/home';
+    }
+  };
+
   if (loading) {
     return (
       <div className="post-loading">
@@ -95,64 +118,84 @@ const Post = () => {
 
   return (
     <div className="post-page">
-    <div className="posts-bg"></div>
+      <div className="posts-bg"></div>
       <div className="post-container">
-        <Link to="/home" className="back-link">← Back to Feed</Link>
+        <div className="post-nav">
+          <Link to="/home" className="back-link">← Back to Feed</Link>
+          {post.isOwner && (
+            <div className="post-actions-nav">
+              <button 
+                className="edit-post-btn"
+                onClick={() => setIsEditing(!isEditing)}
+              >
+                {isEditing ? '✕ Cancel' : '✏️ Edit'}
+              </button>
+              <button 
+                className="delete-post-btn"
+                onClick={handleDelete}
+              >
+                🗑️ Delete
+              </button>
+            </div>
+          )}
+        </div>
         
         <div className="post-full">
-          <div className="post-full-header">
-            <div className="post-user-info">
-              <span className="post-avatar-large">{post.avatar || '📸'}</span>
-              <div>
-                <span className="post-username">{post.user}</span>
-                <span className="post-username-handle">{post.username}</span>
-                {post.isFriend && <span className="friend-badge">🤝 Friend</span>}
-              </div>
-            </div>
-            <span className="post-time">{new Date(post.timestamp).toLocaleDateString()}</span>
-          </div>
-          <div className="post-full-image">
-            <img src={post.image} alt={post.description} />
-          </div>
-          <div className="post-full-content">
-            <p className="post-description">{post.description}</p>
-            
-            <div className="post-hashtags">
-              {post.hashtags.map(tag => (
-                <span key={tag} className="hashtag">{tag}</span>
-              ))}
-            </div>
-            <div className="post-actions">
-              <button 
-                className={`action-btn like-btn ${liked ? 'liked' : ''}`}
-                onClick={handleLike}
-              >
-                {liked ? '❤️' : '🤍'} {likesCount} Likes
-              </button>
-              <button className="action-btn comment-btn">
-                💬 {post.comments.length} Comments
-              </button>
-            </div>
-            <div className="post-comments">
-              <h4>Comments</h4>
-              {post.comments.length === 0 ? (
-                <p className="no-comments">No comments yet. Be the first!</p>
-              ) : (
-                post.comments.map(comment => (
-                  <div key={comment.id} className="comment">
-                    <span className="comment-user">{comment.user}</span>
-                    <span className="comment-text">{comment.text}</span>
-                    <span className="comment-time">{comment.timestamp}</span>
+          {/* Show Edit Form if editing */}
+          {isEditing ? (
+            <EditPost 
+              post={post}
+              onCancel={() => setIsEditing(false)}
+              onSave={handleEditSave}
+            />
+          ) : (
+            <>
+              {/* Post Header */}
+              <div className="post-full-header">
+                <div className="post-user-info">
+                  <span className="post-avatar-large">{post.avatar || '📸'}</span>
+                  <div>
+                    <span className="post-username">{post.user}</span>
+                    <span className="post-username-handle">{post.username}</span>
+                    {post.isFriend && <span className="friend-badge">🤝 Friend</span>}
                   </div>
-                ))
-              )}
-              
-              <div className="comment-input">
-                <input type="text" placeholder="Write a comment..." />
-                <button>Post</button>
+                </div>
+                <span className="post-time">{new Date(post.timestamp).toLocaleDateString()}</span>
               </div>
-            </div>
-          </div>
+
+              {/* Post Image */}
+              <div className="post-full-image">
+                <img src={post.image} alt={post.description} />
+              </div>
+
+              {/* Post Content */}
+              <div className="post-full-content">
+                <p className="post-description">{post.description}</p>
+                
+                <div className="post-hashtags">
+                  {post.hashtags.map(tag => (
+                    <span key={tag} className="hashtag">{tag}</span>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="post-actions">
+                  <button 
+                    className={`action-btn like-btn ${liked ? 'liked' : ''}`}
+                    onClick={handleLike}
+                  >
+                    {liked ? '❤️' : '🤍'} {likesCount} Likes
+                  </button>
+                  <button className="action-btn comment-btn">
+                    💬 {post.comments.length} Comments
+                  </button>
+                </div>
+
+                {/* Comments Component */}
+                <Comments postId={post.id} comments={post.comments} />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

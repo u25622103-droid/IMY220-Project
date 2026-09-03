@@ -265,3 +265,27 @@
         font-size: 1.4rem;
     }
 }
+
+/* Posts Header Actions */
+.posts-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.create-post-btn-small {
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-post-btn-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}

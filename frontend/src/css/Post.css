@@ -291,3 +291,46 @@
 .post-not-found a:hover {
     text-decoration: underline;
 }
+
+/* Post Navigation */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.post-actions-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-post-btn {
+  padding: 8px 18px;
+  background: rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.edit-post-btn:hover {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.delete-post-btn {
+  padding: 8px 18px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.delete-post-btn:hover {
+  background: rgba(255, 0, 0, 0.3);
+}

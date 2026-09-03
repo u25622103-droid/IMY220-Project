@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import CreatePost from '../components/CreatePost';
 import "../css/Posts.css";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showCreatePost, setShowCreatePost] = useState(false);
   
   // User data - initialize directly, no setUser needed
   const user = {
@@ -68,6 +70,12 @@ function Posts() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handlePostCreated = (newPost) => {
+    // Add new post to the list
+    setPosts(prev => [newPost, ...prev]);
+    setShowCreatePost(false);
+  };
+
   if (loading) {
     return (
       <div className="posts-loading">
@@ -95,15 +103,36 @@ function Posts() {
         <div className="posts-section">
           <div className="posts-section-header">
             <h3>📸 My Photos</h3>
-            <span className="post-count">{posts.length} posts</span>
+            <div className="posts-header-actions">
+              <span className="post-count">{posts.length} posts</span>
+              <button 
+                className="create-post-btn-small"
+                onClick={() => setShowCreatePost(true)}
+              >
+                + New Post
+              </button>
+            </div>
           </div>
+
+          {/* Create Post Form */}
+          {showCreatePost && (
+            <CreatePost 
+              onCancel={() => setShowCreatePost(false)}
+              onPostCreated={handlePostCreated}
+            />
+          )}
 
           {posts.length === 0 ? (
             <div className="posts-empty">
               <div className="empty-icon">📸</div>
               <h3>No posts yet</h3>
               <p>Share your first photo with the world!</p>
-              <Link to="/create-post" className="create-post-btn">Create Post</Link>
+              <button 
+                onClick={() => setShowCreatePost(true)} 
+                className="create-post-btn"
+              >
+                Create Post
+              </button>
             </div>
           ) : (
             <div className="posts-grid">
