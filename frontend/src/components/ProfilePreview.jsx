@@ -11,7 +11,7 @@ const ProfilePreview = ({ user, showFriendStatus = false }) => {
         <span className="profile-preview-username">{user.username}</span>
       </div>
       {showFriendStatus && user.isFriend && (
-        <span className="friend-badge">🤝 Friend</span>
+        <span className="friend-badge">Friend</span>
       )}
     </Link>
   );

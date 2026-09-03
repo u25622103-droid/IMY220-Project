@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useState } from 'react';
 
 const Friend = ({ friend, showActions = false }) => {
@@ -6,7 +6,6 @@ const Friend = ({ friend, showActions = false }) => {
 
   const handleFriendAction = () => {
     setIsFriend(!isFriend);
-    console.log(`${isFriend ? 'Unfriended' : 'Friended'} ${friend.name}`);
   };
 
   return (
@@ -20,10 +19,10 @@ const Friend = ({ friend, showActions = false }) => {
           <span className="friend-username">{friend.username}</span>
         </div>
       </Link>
-      
+
       {showActions && (
-        <button 
-          onClick={handleFriendAction} 
+        <button
+          onClick={handleFriendAction}
           className={`friend-action-btn ${isFriend ? 'remove' : 'add'}`}
         >
           {isFriend ? '✓ Friend' : '+ Add Friend'}
