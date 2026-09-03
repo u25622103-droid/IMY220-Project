@@ -4,7 +4,7 @@ import Splash from "./pages/Splash"
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Posts from './pages/Posts';
-import Post from './pages/Post';
+import Post from './components/Post';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import "./css/App.css";
