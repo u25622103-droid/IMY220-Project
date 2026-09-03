@@ -12,7 +12,7 @@ const Signup = () => {
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+  const [messageType, setMessageType] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ const Signup = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const newErrors = {};
@@ -73,30 +73,52 @@ const Signup = () => {
     setIsSubmitting(true);
     setMessage('');
     
-    setTimeout(() => {
-      console.log('Signup successful:', formData);
-      
-      setMessage('Account created successfully! Redirecting to login...');
-      setMessageType('success');
-      setIsSubmitting(false);
-      
-      // Clear form
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+    try {
+      const response = await fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        })
       });
-      
-      // Clear errors
-      setErrors({});
-      
-      // Redirect to login after 2 seconds
-      setTimeout(() => {
-        navigate('/login');
-      }, 5000);
-      
-    }, 1500);
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage('✅ ' + data.message);
+        setMessageType('success');
+        setIsSubmitting(false);
+        
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        });
+        
+        // Clear errors
+        setErrors({});
+        
+        // Redirect to login after 2 seconds
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      } else {
+        setMessage('❌ ' + data.message);
+        setMessageType('error');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error('Signup error:', error);
+      setMessage('❌ Network error. Please make sure the server is running.');
+      setMessageType('error');
+      setIsSubmitting(false);
+    }
   };
 
   return (
