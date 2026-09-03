@@ -72,7 +72,7 @@ input, .form-btn {
     text-align: center;
 }
 
-button {
+.form-btn {
     margin-left: 40%;
     padding: 3%;
     margin-top: 5%;
