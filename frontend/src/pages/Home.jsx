@@ -1,5 +1,5 @@
 import { useState } from 'react';
-//import Feed from '../components/Feed';
+import Feed from '../components/Feed';
 import "../css/Home.css";
 
 function Home() {
@@ -38,7 +38,7 @@ function Home() {
             </div>
           </div>
         <div className="home-content">
-          {/* Feed Component: Feed type={feedType} sortBy={sortBy} /> */}
+          <Feed type={feedType} sortBy={sortBy}/>
         </div>
       </div>
     </>
