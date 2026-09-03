@@ -4,6 +4,7 @@ import Splash from "./pages/Splash"
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Posts from './pages/Posts';
+import Post from './pages/Post';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import "./css/App.css";
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/posts" element={<Posts />} />
+                <Route path="/post/:postId" element={<Post />} />
                 {/* Redirect any unknown routes to home */}
                 <Route path="*" element={<Home />} />
               </Routes>
